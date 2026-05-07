@@ -1,0 +1,91 @@
+{
+  "name": "Download and post an image on LinkedIn",
+  "nodes": [
+    {
+      "parameters": {},
+      "name": "On clicking 'execute'",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        0,
+        0
+      ],
+      "typeVersion": 1,
+      "id": "841a7b9d-c89f-4d59-a3ed-8e9ab022ff63"
+    },
+    {
+      "parameters": {
+        "url": "https://uxlfoundation.org/images/wp-sync/canspirit_artificial_intelligence-1.png",
+        "responseFormat": "file",
+        "options": {}
+      },
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        224,
+        0
+      ],
+      "typeVersion": 1,
+      "id": "274a1ebc-4767-498b-820c-98ef78895ff7"
+    },
+    {
+      "parameters": {
+        "person": "YuzuHWbaJN",
+        "text": "this is a test image post",
+        "shareMediaCategory": "IMAGE",
+        "additionalFields": {}
+      },
+      "name": "LinkedIn",
+      "type": "n8n-nodes-base.linkedIn",
+      "position": [
+        448,
+        0
+      ],
+      "typeVersion": 1,
+      "id": "c1851a98-6cbc-4664-ba4b-69f98510c4cf",
+      "credentials": {
+        "linkedInOAuth2Api": {
+          "id": "b7kTVDe1gBzKR95p",
+          "name": "Rohotvas"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "LinkedIn",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "On clicking 'execute'": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "ddc3446b-5e7f-442f-9fb1-d9fb2ed30cc5",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "fd7e1c2f4650f16f5bf841c28aa823da52c4bafaa836317d6a857b6a7329502a"
+  },
+  "id": "qMWYLsJu93WW9hfy",
+  "tags": []
+}
